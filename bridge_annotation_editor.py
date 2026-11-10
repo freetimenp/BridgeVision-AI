@@ -33,7 +33,7 @@ shown = {pair[1].name for pair in globals().get('chosen', [])
          if isinstance(pair, (tuple, list)) and len(pair) == 2
          and hasattr(pair[1], 'name')}
 candidates = [p for p in all_imgs if p.name not in shown and p.name not in previous]
-rng = random.Random(0)  # Fixed seed: same first assignment if dataset and exclusions match.
+rng = random.Random(name)  #  seed based on the name
 rng.shuffle(candidates)
 
 # Prefer visually different images (not necessarily higher-quality ones).
